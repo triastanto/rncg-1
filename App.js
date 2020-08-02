@@ -14,10 +14,18 @@ export default function App() {
 	const [courseGoals, setCourseGoals] = useState([]);
 
 	const addGoalHandler = (goalTitle) => {
+		// This function is not surrounded by curly brace because
+		// it directly translates into return statement
 		setCourseGoals((currentGoals) => [
 			...courseGoals,
 			{ id: Math.random().toString(), value: goalTitle },
 		]);
+	};
+
+	const removeGoalHandler = (goalId) => {
+		setCourseGoals((currentGoals) => {
+			return currentGoals.filter((goal) => goal.id !== goalId);
+		});
 	};
 
 	return (
@@ -28,8 +36,9 @@ export default function App() {
 				data={courseGoals}
 				renderItem={(itemData) => (
 					<GoalItem
+						id={itemData.item.id}
 						title={itemData.item.value}
-						onDelete={() => console.log("touch test")}
+						onDelete={removeGoalHandler}
 					></GoalItem>
 				)}
 			></FlatList>
