@@ -27,7 +27,10 @@ export default function App() {
 				keyExtractor={(item, index) => item.id}
 				data={courseGoals}
 				renderItem={(itemData) => (
-					<GoalItem title={itemData.item.value}></GoalItem>
+					<GoalItem
+						title={itemData.item.value}
+						onDelete={() => console.log("touch test")}
+					></GoalItem>
 				)}
 			></FlatList>
 		</View>

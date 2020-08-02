@@ -16,9 +16,6 @@ const GoalInput = (props) => {
 				onChangeText={goalInputHandler}
 				value={enteredGoal}
 			/>
-			{/* using anonymous function  */}
-			{/* <Button title="ADD" onPress={() => props.onAddGoal(enteredGoal)} /> */}
-			{/* use bind with forwarded argument */}
 			<Button title="ADD" onPress={props.onAddGoal.bind(this, enteredGoal)} />
 		</View>
 	);
